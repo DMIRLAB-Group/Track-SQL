@@ -23,15 +23,15 @@ def parse_option():
                         help='the id of used GPU device.')
     parser.add_argument('--seed', type=int, default=42,
                         help='random seed.')
-    parser.add_argument('--model_name_or_path', type=str, default="ckpts/sic/sparc/ablation/multiturn_bare",
+    parser.add_argument('--model_name_or_path', type=str, default="",
                         help='save path of best fine-tuned model on validation set.')
-    parser.add_argument('--input_train_dataset_path', type=str, default="data/preprocessed_data/sparc/symlink_star_add_comment/preprocessed_train.json",
+    parser.add_argument('--input_train_dataset_path', type=str, default="",
                         help='path of pre-processed development dataset.')
-    parser.add_argument('--input_dev_dataset_path', type=str, default="data/preprocessed_data/sparc/symlink_star_add_comment/preprocessed_dev.json",
+    parser.add_argument('--input_dev_dataset_path', type=str, default="",
                         help='path of pre-processed development dataset.')
-    parser.add_argument('--output_train_dataset_path', type=str, default="data/preprocessed_data/sparc/ablation/multiturn_bare/sft_train.json",
+    parser.add_argument('--output_train_dataset_path', type=str, default="",
                         help='path of the output dataset (used in eval mode).')
-    parser.add_argument('--output_dev_dataset_path', type=str, default="data/preprocessed_data/sparc/ablation/multiturn_bare/sft_dev.json",
+    parser.add_argument('--output_dev_dataset_path', type=str, default="",
                         help='path of the output dataset (used in eval mode).')
     parser.add_argument('--use_contents', default=True,
                         help='whether to integrate db contents into input sequence')
@@ -45,10 +45,8 @@ def parse_option():
                         help = 'we only remain topk_column_num columns for each table in the ranked dataset (k_2 in the paper).')
     parser.add_argument('--noise_rate', type = float, default = 0.08,
                         help = 'the noise rate in the ranked training dataset (needed when the mode = "train")')
-    parser.add_argument('--table_threshold', type=float, default=0.3,
-                        help='the noise rate in the ranked training dataset (needed when the mode = "train")')
-    parser.add_argument('--column_threshold', type=float, default=0.2,
-                        help='the noise rate in the ranked training dataset (needed when the mode = "train")')
+    parser.add_argument('--table_threshold', type=float, default=0.3)
+    parser.add_argument('--column_threshold', type=float, default=0.2)
     parser.add_argument('--plm_name', type=str, default="roberta-large")
     parser.add_argument('--max_input_len', type=int, default=512)
     parser.add_argument('--plm_hidden_state_dim', type=int, default=1024)

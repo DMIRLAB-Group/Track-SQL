@@ -34,13 +34,13 @@ def parse_option():
                         help='patience step in early stopping. -1 means no early stopping.')
     parser.add_argument('--seed', type=int, default=42,
                         help='random seed.')
-    parser.add_argument('--save_path', type=str, default="ckpts/sic/sparc/ablation/multiturn_bare/",
+    parser.add_argument('--save_path', type=str, default="",
                         help='save path of best fine-tuned model on validation set.')
-    parser.add_argument('--train_filepath', type=str, default="data/preprocessed_data/sparc/symlink_star_add_comment/preprocessed_train.json",
+    parser.add_argument('--train_filepath', type=str, default="",
                         help='path of pre-processed training dataset.')
-    parser.add_argument('--dev_filepath', type=str, default="data/preprocessed_data/sparc/symlink_star_add_comment/preprocessed_dev.json",
+    parser.add_argument('--dev_filepath', type=str, default="",
                         help='path of pre-processed development dataset.')
-    parser.add_argument('--model_name_or_path', type=str, default="/amax/storage/nfs/vpcctrl/d7/huggingface/roberta/roberta-large/",
+    parser.add_argument('--model_name_or_path', type=str, default="",
                         help='''pre-trained model name.''')
     parser.add_argument('--use_contents', default=True,
                         help='whether to integrate db contents into input sequence')

@@ -55,18 +55,7 @@ def parse_config():
 
     return config
 
-INSTRUCT_V1 = """
-Convert the following question to an SQL query using the following database schema.
-"""
-INSTRUCT_V2 = """
-You are a SQL query generator that converts multi-round questions along with associated database schema information into corresponding SQL statements. The multi-round questions will be concatenated using the '&' symbol, and you should generate the SQL statement that answers the current round of the question based on the provided database schema.
-
-Each database schema is provided in the following format:
-
-Table name : Column name1, Column name2 Different tables are separated by the '|' symbol, and the order of table names and column names is relevant to the current question; those appearing earlier are more closely related.
-The task is to take the multi-round question and the database schema as input and output an SQL statement that answers the question correctly.
-"""
-INSTRUCT_V3 = """
+INSTRUCT = """
 You are a SQL query generator that converts multi-round questions along with associated database schema information into corresponding SQL statements. The multi-round questions will be concatenated using the '&' symbol, and you should generate the SQL statement that answers the current round of the question based on the provided database schema.
 
 Each database schema is provided in the following format:
@@ -101,23 +90,14 @@ def main(config):
                 input_sequence = training_dataset['input_sequence'][i]
                 question = input_sequence.split(" | ")[0]
                 database_schema = " | ".join(input_sequence.split(" | ")[1:])
-                if config.instruct_version == 1:
-                    instruct = INSTRUCT_V1
-                    user_message = instruct + "\n" + "database schema: \n" + database_schema + "\n" + "question: \n" + question
-                elif config.instruct_version == 2:
-                    instruct =INSTRUCT_V2
-                    user_message = instruct + "\n" + "database schema: " + database_schema + "\n" + "question: " + question
-                elif config.instruct_version == 3:
-                    if training_dataset["turn_idx"][i] > 0:
-                        previous_query = training_dataset['output_sequence'][i-1]
-                        previous_query = "SQL corresponding to the previous round of questions: " + previous_query
-                    else:
-                        previous_query = ""
-                    instruct = INSTRUCT_V3 + "\n" + previous_query + "\n" + "The task is to take the multi-round question and the database schema as input and output an SQL statement that answers the question correctly."
-                    user_message = instruct + "\n" + "database schema: " + database_schema + "\n" + "question: " + question
 
+                if training_dataset["turn_idx"][i] > 0:
+                    previous_query = training_dataset['output_sequence'][i-1]
+                    previous_query = "SQL corresponding to the previous round of questions: " + previous_query
                 else:
-                    raise "instruct version error"
+                    previous_query = ""
+                instruct = INSTRUCT + "\n" + previous_query + "\n" + "The task is to take the multi-round question and the database schema as input and output an SQL statement that answers the question correctly."
+                user_message = instruct + "\n" + "database schema: " + database_schema + "\n" + "question: " + question
 
                 output_sequence = training_dataset['output_sequence'][i]
                 if model_name ==  "deepseek-coder-v2-lite-instruct":
