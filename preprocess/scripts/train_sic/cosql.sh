@@ -12,7 +12,7 @@ python preprocess/cosql/train_sic.py \
     --save_path "ckpts/sic/cosql" \
     --train_filepath "data/preprocessed_data/cosql/preprocessed_train.json" \
     --dev_filepath "data/preprocessed_data/cosql/preprocessed_dev.json" \
-    --model_name_or_path "/amax/storage/nfs/vpcctrl/d7/huggingface/roberta/roberta-large/" \
+    --model_name_or_path "huggingface/roberta/roberta-large/" \
     --use_contents true \
     --add_fk_info true \
     --mode "train" \
