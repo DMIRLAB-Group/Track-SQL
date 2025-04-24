@@ -56,11 +56,6 @@ def parse_option():
     parser.add_argument('--add_comment', action='store_true')
     parser.add_argument('--use_comment_enhanced', action='store_true')
     parser.add_argument('--use_column_enhanced', action='store_true')
-    parser.add_argument('--multiturn', action='store_true')
-    parser.add_argument('--multiturn_wtable', action='store_true')
-    # parser.add_argument('--multiturn', default=True)
-    
-    # parser.add_argument('--add_comment', default=True)
 
     opt = parser.parse_args()
 
@@ -303,9 +298,6 @@ def _train(opt):
         add_prefix_space=True
     )
     tokenizer.add_tokens(AddedToken("[FK]"))
-
-    if opt.multiturn:
-        tokenizer.add_tokens(AddedToken("[SN]"))
 
     dir_ =opt.train_filepath
     train_dataset = ColumnAndTableClassifierDataset(

@@ -1,7 +1,7 @@
 python preprocess/cosql/preprocess_src.py \
-    --model "deepseek-chat" \
+    --model "" \
     --api_key "" \
-    --base_url "https://api.deepseek.com" \
+    --base_url "" \
     --train_file "data/original_data/cosql/sql_state_tracking/cosql_train.json" \
     --dev_file "data/original_data/cosql/sql_state_tracking/cosql_dev.json" \
     --preprocessed_train_file "data/preprocessed_data/cosql/preprocessed_train.json" \

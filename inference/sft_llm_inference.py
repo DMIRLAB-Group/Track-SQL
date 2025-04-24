@@ -37,7 +37,7 @@ class EosListStoppingCriteria(StoppingCriteria):
 def parse_args():
     parser = argparse.ArgumentParser("command line arguments for fine-tuning pre-trained language model.")
 
-    parser.add_argument('--model_path', type=str, default="/amax/storage/nfs/vpcctrl/d7/huggingface/deepseek-ai/deepseek-coder-6.7b-instruct/")
+    parser.add_argument('--model_path', type=str, default="huggingface/deepseek-ai/deepseek-coder-6.7b-instruct/")
     parser.add_argument('--final_ckpts_path', type=str, default="ckpts/llm_ckpts/sparc/deepseek-coder-6.7b/")
     parser.add_argument('--dev_file', type=str, default="data/preprocessed_data/sparc/sft_dev.json")
     parser.add_argument('--original_dev_path', type=str, default="./data/original_data/sparc/dev.json")

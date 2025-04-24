@@ -40,11 +40,7 @@ def parse_config():
     parser.add_argument('--max_seq_length', type=int, default=3000)
     parser.add_argument('--output_dir', type=str, default="ckpts/llm_ckpts/spider/left")
     parser.add_argument('--use_dora', action='store_true')
-    parser.add_argument('--model_path', type=str, default="/amax/storage/nfs/vpcctrl/d7/huggingface/deepseek-ai/deepseek-coder-6.7b-instruct")
-    # "/amax/storage/nfs/vpcctrl/d7/huggingface/mistralai/mistral-7b-instruct"
-    #"/amax/storage/nfs/vpcctrl/d7/huggingface/deepseek-ai/deepseek-coder-6.7b-instruct/"
-    #"/public/home/bfchen_jsjxy/d7/huggingface/CodeLlama-7b-Instruct-hf/"
-    # "/public/home/bfchen_jsjxy/d7/huggingface/deepseek-ai/deepseek-coder-6.7b-instruct/"w
+    parser.add_argument('--model_path', type=str, default="huggingface/deepseek-ai/deepseek-coder-6.7b-instruct")
     parser.add_argument('--train_file', type=str, default="data/preprocessed_data/spider/sft_spider_train_left.json")
     parser.add_argument('--dev_file', type=str, default="data/preprocessed_data/spider/sft_spider_train_right.json")
     parser.add_argument('--llm_name', type=str, default="deepseek")

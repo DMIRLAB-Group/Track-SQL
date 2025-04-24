@@ -23,15 +23,15 @@ def parse_option():
                         help='the id of used GPU device.')
     parser.add_argument('--seed', type=int, default=42,
                         help='random seed.')
-    parser.add_argument('--model_name_or_path', type=str, default="ckpts/sic/sparc/ablation/multiturn_bare",
+    parser.add_argument('--model_name_or_path', type=str, default="ckpts/sic/sparc",
                         help='save path of best fine-tuned model on validation set.')
-    parser.add_argument('--input_train_dataset_path', type=str, default="data/preprocessed_data/sparc/symlink_star_add_comment/preprocessed_train.json",
+    parser.add_argument('--input_train_dataset_path', type=str, default="data/preprocessed_data/sparc/preprocessed_train.json",
                         help='path of pre-processed development dataset.')
-    parser.add_argument('--input_dev_dataset_path', type=str, default="data/preprocessed_data/sparc/symlink_star_add_comment/preprocessed_dev.json",
+    parser.add_argument('--input_dev_dataset_path', type=str, default="data/preprocessed_data/sparc/preprocessed_dev.json",
                         help='path of pre-processed development dataset.')
-    parser.add_argument('--output_train_dataset_path', type=str, default="data/preprocessed_data/sparc/ablation/multiturn_bare/sft_train.json",
+    parser.add_argument('--output_train_dataset_path', type=str, default="data/preprocessed_data/sparc/sft_train.json",
                         help='path of the output dataset (used in eval mode).')
-    parser.add_argument('--output_dev_dataset_path', type=str, default="data/preprocessed_data/sparc/ablation/multiturn_bare/sft_dev.json",
+    parser.add_argument('--output_dev_dataset_path', type=str, default="data/preprocessed_data/sparc/sft_dev.json",
                         help='path of the output dataset (used in eval mode).')
     parser.add_argument('--use_contents', default=True,
                         help='whether to integrate db contents into input sequence')
@@ -57,9 +57,6 @@ def parse_option():
     parser.add_argument('--add_comment', action='store_true')
     parser.add_argument('--use_comment_enhanced', action='store_true')
     parser.add_argument('--use_column_enhanced', action='store_true')
-    # parser.add_argument('--multiturn', default=True)
-    parser.add_argument('--multiturn', action='store_true')
-    parser.add_argument('--multiturn_wtable', action='store_true')
     args = parser.parse_args()
     return args
 
@@ -92,27 +89,11 @@ def tokenizer_schema(opt,
 
         for table_id, table_name in enumerate(table_names_in_one_db):
             input_tokens.append("|")
-            # add [SN]
-            if opt.multiturn and opt.multiturn_wtable and batch_turn_idx[0] > 0 and table_pred_probs[table_id] > opt.table_threshold:
-                table_name = table_name + " ( [SN] )"
             input_tokens.append(table_name)
             table_name_ids.append(len(input_tokens) - 1)
             input_tokens.append(":")
 
             for col_id,column_info in enumerate(column_infos_in_one_db[table_id]):
-                # add [SN]
-                if opt.multiturn and batch_turn_idx[0] > 0:
-                    if "[SN]" not in column_info and column_pred_probs[table_id][col_id] > opt.column_threshold:
-                        if " ( " not in column_info:
-                            column_info = column_info + " ( [SN] ) "
-                        else:
-                            turn_mark = "[SN]"
-                            right_paren_index = column_info.rfind(')')
-                            if ',' in column_info:
-                                last_comma_index = column_info.rfind(',')
-                                column_info = column_info[:last_comma_index + 1] + turn_mark + column_info[last_comma_index + 1:]
-                            else:
-                                column_info = column_info[:right_paren_index] + ', ' + turn_mark + column_info[right_paren_index:]
 
                 input_tokens.append(column_info)
                 column_info_ids.append(len(input_tokens) - 1)
