@@ -1,0 +1,14 @@
+openai
+tiktoken
+func_timeout
+tqdm
+sql_metadata
+argilla
+nltk
+pandas
+pillow
+rapidfuzz
+transformers==4.46.3
+scikit-learn
+peft
+trl

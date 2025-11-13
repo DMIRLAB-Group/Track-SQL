@@ -1,6 +1,7 @@
 export CUDA_VISIBLE_DEVICES=0
 python preprocess/cosql/train_sic.py \
-    --batch_size 6 \
+    --train_bs 6 \
+    --dev_bs 6 \
     --gradient_descent_step 2 \
     --learning_rate 1e-5 \
     --gamma 2.0 \
@@ -10,8 +11,8 @@ python preprocess/cosql/train_sic.py \
     --patience 16 \
     --seed 42 \
     --save_path "ckpts/sic/cosql" \
-    --train_filepath "data/preprocessed_data/cosql/preprocessed_train.json" \
-    --dev_filepath "data/preprocessed_data/cosql/preprocessed_dev.json" \
+    --train_filepath "preprocessed_data/cosql/preprocessed_train.json" \
+    --dev_filepath "preprocessed_data/cosql/preprocessed_dev.json" \
     --model_name_or_path "huggingface/roberta/roberta-large/" \
     --use_contents true \
     --add_fk_info true \

@@ -2,7 +2,6 @@ import os, sys
 import re
 import json
 import argparse
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
 from preprocess.sparc.preprocess_utils import get_database_matches
 from sql_metadata import Parser
 from tqdm import tqdm

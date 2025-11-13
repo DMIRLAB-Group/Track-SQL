@@ -4,10 +4,10 @@ python preprocess/sparc/inference_sic.py \
         --device "1" \
         --seed 42 \
         --model_name_or_path "ckpts/sic/sparc" \
-        --input_train_dataset_path "data/preprocessed_data/sparc/preprocessed_train.json" \
-        --output_train_dataset_path "data/preprocessed_data/sparc_test/sft_train.json" \
-        --input_dev_dataset_path "data/preprocessed_data/sparc/preprocessed_dev.json" \
-        --output_dev_dataset_path "data/preprocessed_data/sparc_test/sft_dev.json" \
+        --input_train_dataset_path "preprocessed_data/sparc/preprocessed_train.json" \
+        --output_train_dataset_path "preprocessed_data/sparc_test/sft_train.json" \
+        --input_dev_dataset_path "preprocessed_data/sparc/preprocessed_dev.json" \
+        --output_dev_dataset_path "preprocessed_data/sparc_test/sft_dev.json" \
         --use_contents true \
         --add_fk_info true \
         --topk_table_num 4 \

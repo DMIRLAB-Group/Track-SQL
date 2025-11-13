@@ -1,4 +1,4 @@
-export CUDA_VISIBLE_DEVICES=0,1
+export CUDA_VISIBLE_DEVICES=5,6
 python train/sft_llm_training.py \
     --model_path "huggingface/mistralai/Mistral-7B-Instruct-v0.2" \
     --train_file "data/preprocessed_data/sparc/sft_train.json" \

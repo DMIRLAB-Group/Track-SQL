@@ -1,6 +1,7 @@
 export CUDA_VISIBLE_DEVICES=1
 python preprocess/sparc/train_sic.py \
-    --batch_size 6 \
+    --train_bs 6 \
+    --dev_bs 6 \
     --gradient_descent_step 2 \
     --learning_rate 1e-5 \
     --gamma 2.0 \
