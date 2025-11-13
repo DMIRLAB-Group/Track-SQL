@@ -6,7 +6,7 @@ Track-SQL is a novel framework designed to boost multi-turn Text-to-SQL performa
 
 ## Environment Setup
 ### Hardware Requirements
-- GPU: ≥ 4 × NVIDIA A100/A800 (80GB VRAM) for training; ≥ 1 × NVIDIA RTX 3090/4090 for inference
+- GPU: ≥ 2 × NVIDIA RTX 3090/4090 (24GB VRAM) for training; ≥ 1 × NVIDIA RTX 3090/4090 for inference
 - CUDA Version: 11.8 (compatible with PyTorch 2.1.0)
 - CPU: Intel Xeon Platinum 83xx series or equivalent; ≥ 64GB RAM
 - OS: Ubuntu 20.04 LTS / CentOS Linux 7
