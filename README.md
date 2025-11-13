@@ -2,6 +2,7 @@
 NAACL 2025 Submission
 
 ## Project Overview
+![Track-SQL Framework Overview](img/overview.png)
 Track-SQL is a novel framework designed to boost multi-turn Text-to-SQL performance by integrating dual-extractive modules for precise schema and context tracking. Built on state-of-the-art generative language models, this work addresses key challenges in multi-turn dialogue scenarios—including schema confusion and context drift—through structured module design and optimized training pipelines.
 
 ## Environment Setup
