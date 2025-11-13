@@ -112,20 +112,7 @@ Generate SQL predictions and evaluate performance using official metrics (Exact 
 # Inference on test sets
 sh inference/scripts/sparc.sh
 sh inference/scripts/cosql.sh
-
-# Evaluate results (requires Java 11+)
-sh metrics/evaluate.sh
 ```
-Evaluation results will be saved to `results/` as CSV files.
-
-## Experimental Results
-### Key Performance on SparC and CoSQL
-| Dataset | Exact Match (EM) | Execution Accuracy (EA) |
-|---------|------------------|--------------------------|
-| SparC (Test) | 78.3% | 75.6% |
-| CoSQL (Test) | 72.1% | 69.8% |
-
-For detailed ablation studies and comparison with baselines, refer to the full paper.
 
 ## License
 This project is licensed under the Apache-2.0 License. See the `LICENSE` file for more details.
@@ -138,10 +125,6 @@ We thank the authors of the following projects for their open-source contributio
 
 ## Contact Information
 For questions or issues, please open a GitHub issue or contact the corresponding author:
-- Author: [Your Name]
-- Email: [your.email@institution.edu]
+- Author: [Shaobin Shi]
+- Email: [d7inshi@gmail.com]
 - Project Repository: [GitHub Link]
-
----
-
-Would you like me to add a **Checkpoint Download** section (for pre-trained models), expand the **Experimental Results** with more baseline comparisons, or refine the script comments for better readability? I can also generate a `requirements.txt` template aligned with the environment setup to make the README more complete.
