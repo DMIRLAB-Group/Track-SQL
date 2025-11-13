@@ -10,7 +10,7 @@ python preprocess/cosql/train_sic.py \
     --epochs 128 \
     --patience 16 \
     --seed 42 \
-    --save_path "ckpts/sic/cosql" \
+    --save_path "ckpts/stm/cosql" \
     --train_filepath "preprocessed_data/cosql/preprocessed_train.json" \
     --dev_filepath "preprocessed_data/cosql/preprocessed_dev.json" \
     --model_name_or_path "huggingface/roberta/roberta-large/" \

@@ -3,7 +3,7 @@ python preprocess/cosql/inference_sic.py \
         --batch_size 1 \
         --device "2" \
         --seed 42 \
-        --model_name_or_path "ckpts/sic/cosql" \
+        --model_name_or_path "ckpts/stm/cosql" \
         --input_train_dataset_path "preprocessed_data/cosql/preprocessed_train.json" \
         --output_train_dataset_path "preprocessed_data/cosql_test/sft_train.json" \
         --input_dev_dataset_path "preprocessed_data/cosql/preprocessed_dev.json" \

@@ -57,7 +57,6 @@ unzip raw_data/cosql_dataset.zip -d data/
 unzip raw_data/testsuitedatabases.zip -d metrics/ts_database/
 ```
 
-> **Note**: If Google Drive links are inaccessible (e.g., regional restrictions), please refer to the [official dataset repositories](https://yale-lily.github.io/sparc) or contact the authors for alternative access.
 
 ## Usage Instructions
 Follow the sequential steps below to reproduce the results of Track-SQL. All scripts are provided in the `preprocess/`, `train/`, and `inference/` directories.

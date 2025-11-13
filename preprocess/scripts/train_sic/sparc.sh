@@ -10,7 +10,7 @@ python preprocess/sparc/train_sic.py \
     --epochs 128 \
     --patience 16 \
     --seed 42 \
-    --save_path "ckpts/sic/sparc" \
+    --save_path "ckpts/stm/sparc" \
     --train_filepath "data/preprocessed_data/sparc/preprocessed_train.json" \
     --dev_filepath "data/preprocessed_data/sparc/preprocessed_dev.json" \
     --model_name_or_path "huggingface/roberta/roberta-large/" \

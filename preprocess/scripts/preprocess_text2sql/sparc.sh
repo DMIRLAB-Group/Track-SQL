@@ -3,7 +3,7 @@ python preprocess/sparc/inference_sic.py \
         --batch_size 1 \
         --device "1" \
         --seed 42 \
-        --model_name_or_path "ckpts/sic/sparc" \
+        --model_name_or_path "ckpts/stm/sparc" \
         --input_train_dataset_path "preprocessed_data/sparc/preprocessed_train.json" \
         --output_train_dataset_path "preprocessed_data/sparc_test/sft_train.json" \
         --input_dev_dataset_path "preprocessed_data/sparc/preprocessed_dev.json" \
