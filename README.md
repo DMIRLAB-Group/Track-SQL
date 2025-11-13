@@ -103,8 +103,6 @@ mkdir -p ckpts/track-sql
 sh train/scripts/sparc.sh
 sh train/scripts/cosql.sh
 ```
-- Training uses DeepSpeed ZeRO-2 for memory optimization (configure via `accelerate config`).
-- Adjust `per_device_train_batch_size` in scripts based on GPU memory (default: 4 for A100).
 
 ### Step 5: Inference and Evaluation
 Generate SQL predictions and evaluate performance using official metrics (Exact Match, Execution Accuracy):
